@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UNC vs. Miami Pregame Breakdown</title>
+<meta name="description" content="Matt Z's picks for Saturday's UNC-Miami game at Kenan Stadium.">
+<meta name="theme-color" content="#7bafd4">
+<meta property="og:type" content="website">
+<meta property="og:title" content="UNC vs. Miami Pregame Breakdown">
+<meta property="og:description" content="Matt Z's picks for Saturday's UNC-Miami game at Kenan Stadium.">
+<meta property="og:image" content="https://mattz-rgb.github.io/unc-miami-preview/og-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: broadcast-style program. Carolina blue vs. Miami orange, a scoreboard hero, then tabbed position groups with side-by-side depth charts. */
+:root {
+  color-scheme: dark;
+  --bg: #0a1424;
+  --surface: #111d33;
+  --surface-2: #182843;
+  --fg: #e9eff8;
+  --muted: #93a4bd;
+  --line: #243656;
+  --unc: #7bafd4;
+  --on-unc: #0a1424;
+  --unc-bg: #12335a;
+  --mia: #f47321;
+  --on-mia: #1a0c02;
+  --mia-bg: #3b1d0a;
+  --out: #e2574c;
+  --ok: #4cc38a;
+  --unk: #d9b44a;
+  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --bg: #f2f5f9; --surface: #ffffff; --surface-2: #e8eef6; --fg: #0d1b2e; --muted: #53677f; --line: #d1dbe8;
+    --unc: #2a6899; --on-unc: #ffffff; --unc-bg: #dbe9f6;
+    --mia: #cf5208; --on-mia: #ffffff; --mia-bg: #fde5d3;
+    --out: #bf3a30; --ok: #1d8a5a; --unk: #8f6c0c;
+  }
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f2f5f9; --surface: #ffffff; --surface-2: #e8eef6; --fg: #0d1b2e; --muted: #53677f; --line: #d1dbe8;
+  --unc: #2a6899; --on-unc: #ffffff; --unc-bg: #dbe9f6;
+  --mia: #cf5208; --on-mia: #ffffff; --mia-bg: #fde5d3;
+  --out: #bf3a30; --ok: #1d8a5a; --unk: #8f6c0c;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+a { color: var(--unc); }
+.wrap { width: 100%; max-width: 1160px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3, h4 { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.02em; line-height: 1; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+
+/* nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; gap: 20px; overflow-x: auto; scrollbar-width: none; padding-block: 12px; }
+.nav .brand { font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; font-size: 18px; white-space: nowrap; color: var(--fg); }
+.nav a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
+.nav a:hover, .nav a:focus-visible { color: var(--fg); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--unc); outline-offset: 3px; border-radius: 2px; }
+
+/* hero */
+.hero { padding-block: 40px 12px; }
+.kicker { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 18px; }
+.scoreboard { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); border: 1px solid var(--line); }
+.team { padding: 28px clamp(16px, 3vw, 36px); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.team.unc { background: var(--unc-bg); }
+.team.mia { background: var(--mia-bg); text-align: right; align-items: flex-end; }
+.team .rank { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.team h1 { font-size: clamp(36px, 6vw, 88px); font-weight: 900; overflow-wrap: anywhere; }
+.team.unc h1 { color: var(--unc); }
+.team.mia h1 { color: var(--mia); }
+.team .rec { font-family: var(--display); font-weight: 700; font-size: clamp(26px, 3.6vw, 40px); letter-spacing: 0.02em; }
+.team .meta { font-size: 14px; color: var(--muted); }
+.mid { background: var(--surface); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px clamp(14px, 2.4vw, 30px); text-align: center; gap: 4px; border-inline: 1px solid var(--line); }
+.mid .vs { font-family: var(--display); font-weight: 800; font-size: 22px; color: var(--muted); letter-spacing: 0.12em; }
+.mid .pick-l { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+.mid .pick { font-family: var(--display); font-weight: 900; font-size: clamp(34px, 5vw, 56px); line-height: 0.95; white-space: nowrap; }
+.mid .pick b { color: var(--unc); font-weight: 900; }
+.mid .pick i { color: var(--mia); font-style: normal; }
+.odds { margin-top: 14px; font-family: var(--mono); font-size: 12.5px; color: var(--muted); line-height: 1.7; border: 1px dashed var(--line); padding: 12px 16px; }
+.odds strong { color: var(--fg); font-weight: 500; }
+
+/* sections */
+section { padding-block: 64px 8px; }
+.sec-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin-bottom: 24px; }
+.sec-h h2 { font-size: clamp(32px, 5vw, 52px); font-weight: 900; }
+.sec-h p { color: var(--muted); font-size: 14px; max-width: 60ch; }
+.intro { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 36px; }
+.intro p + p { margin-top: 14px; }
+.intro .lead { font-size: 18px; }
+.facts { display: grid; gap: 0; border-top: 1px solid var(--line); align-self: start; }
+.facts div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.facts span { color: var(--muted); }
+.facts b { font-family: var(--mono); font-weight: 500; text-align: right; }
+
+/* tale of the tape */
+.tape { display: grid; gap: 22px; }
+.trow { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 18px; align-items: center; }
+.tl span { display: block; font-size: 14px; font-weight: 500; }
+.tl em { font-style: normal; font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.bars { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+.bar { position: relative; height: 34px; background: var(--surface); display: flex; align-items: center; }
+.bar i { position: absolute; top: 0; bottom: 0; }
+.bar.left { justify-content: flex-start; }
+.bar.left i { right: 0; background: var(--unc); }
+.bar.right i { left: 0; background: var(--mia); }
+.bar b { position: relative; z-index: 1; font-family: var(--display); font-size: 22px; font-weight: 800; letter-spacing: 0.02em; padding: 0 10px; }
+.bar.left { flex-direction: row-reverse; justify-content: flex-start; }
+.bar.left b { color: var(--fg); }
+.bar.right b { color: var(--fg); }
+.legend { display: flex; justify-content: space-between; margin-top: 4px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.legend .u { color: var(--unc); } .legend .m { color: var(--mia); }
+
+/* position groups */
+.tablist { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--line); margin-bottom: 26px; }
+.tab { appearance: none; background: none; border: 0; border-bottom: 3px solid transparent; color: var(--muted); font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: 0.04em; text-transform: uppercase; padding: 10px 16px 8px; cursor: pointer; white-space: nowrap; }
+.tab:hover { color: var(--fg); }
+.tab[aria-selected="true"] { color: var(--fg); border-bottom-color: var(--unc); }
+.panel-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; margin-bottom: 18px; }
+.panel-top h3 { font-size: clamp(28px, 4vw, 40px); font-weight: 900; }
+.edge { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 12px; border: 1px solid; }
+.edge-mia { color: var(--mia); border-color: var(--mia); }
+.edge-unc { color: var(--unc); border-color: var(--unc); }
+.edge-even, .edge-split { color: var(--fg); border-color: var(--muted); }
+.chips { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin-bottom: 26px; }
+.chip { background: var(--surface); padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+.chip b { font-family: var(--display); font-size: 26px; font-weight: 800; letter-spacing: 0.02em; line-height: 1; }
+.chip span { font-size: 12.5px; color: var(--muted); }
+.panel-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 36px; align-items: start; }
+.prose { max-width: 62ch; }
+.prose p + p { margin-top: 14px; }
+.charts { display: grid; gap: 16px; min-width: 0; }
+.dc { background: var(--surface); border-top: 3px solid; min-width: 0; }
+.dc-u { border-top-color: var(--unc); } .dc-m { border-top-color: var(--mia); }
+.dc-h { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 14px 6px; }
+.dc-h span { font-family: var(--display); font-weight: 800; font-size: 20px; text-transform: uppercase; letter-spacing: 0.04em; }
+.dc-u .dc-h span { color: var(--unc); } .dc-m .dc-h span { color: var(--mia); }
+.dc-h em { font-style: normal; font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.tw { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { text-align: left; padding: 7px 14px; border-top: 1px solid var(--line); vertical-align: top; }
+thead th { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-top: 0; }
+tbody th { font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+td { min-width: 120px; }
+.dash { color: var(--muted); }
+.tag { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--out); border: 1px solid var(--out); padding: 0 5px; margin-left: 4px; white-space: nowrap; }
+.note { margin-top: 14px; font-size: 13px; color: var(--muted); max-width: 80ch; }
+
+/* targets and concerns */
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0 40px; }
+.card { padding: 18px 0 20px; border-top: 1px solid var(--line); }
+.card h3 { font-size: 24px; font-weight: 800; margin-bottom: 8px; }
+.tgt h3 { color: var(--unc); } .cnc h3 { color: var(--mia); }
+.card p { color: var(--fg); font-size: 15px; max-width: 52ch; }
+
+/* flow */
+.flow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 40px; align-items: start; }
+.flow ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.flow li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-top: 1px solid var(--line); }
+.flow .q { font-family: var(--display); font-weight: 900; font-size: 34px; color: var(--muted); line-height: 1; }
+.flow h4 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+.flow p { font-size: 15px; }
+.cardbox { background: var(--surface); padding: 18px 16px 12px; }
+.cardbox h4 { font-size: 20px; margin-bottom: 4px; font-weight: 800; }
+.cardbox .sub { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; }
+.cardbox svg { width: 100%; height: auto; display: block; }
+.gl { stroke: var(--line); stroke-width: 1; }
+.gt { fill: var(--muted); font-family: var(--mono); font-size: 11px; }
+.lu { fill: none; stroke: var(--unc); stroke-width: 3.5; stroke-linejoin: round; }
+.lm { fill: none; stroke: var(--mia); stroke-width: 3.5; stroke-linejoin: round; stroke-dasharray: 2 7; stroke-linecap: round; }
+.du { fill: var(--unc); }
+.dm { fill: var(--surface); stroke: var(--mia); stroke-width: 2.5; }
+.le { font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: 0.04em; }
+.lue { fill: var(--unc); } .mie { fill: var(--mia); }
+.cardbox .cap { font-size: 12px; color: var(--muted); padding-top: 6px; }
+
+/* injuries */
+.st { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid; padding: 2px 8px; white-space: nowrap; }
+.st-dnp, .st-out { color: var(--out); border-color: var(--out); }
+.st-ok { color: var(--ok); border-color: var(--ok); }
+.st-unk { color: var(--unk); border-color: var(--unk); }
+.inj { background: var(--surface); }
+.inj td, .inj th { padding: 11px 14px; }
+.inj tbody th { font-family: var(--body); font-size: 14px; font-weight: 600; color: var(--fg); white-space: normal; min-width: 150px; }
+
+
+.rep { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.rep-c { background: var(--surface); padding: 18px 18px 14px; border-top: 3px solid; }
+.rep-c.unc { border-top-color: var(--unc); } .rep-c.mia { border-top-color: var(--mia); }
+.rep-c h3 { font-size: 26px; font-weight: 900; margin-bottom: 10px; }
+.rep-c.unc h3 { color: var(--unc); } .rep-c.mia h3 { color: var(--mia); }
+.rep-c h4 { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--out); text-transform: uppercase; margin: 14px 0 4px; }
+.rep-c h4.q { color: var(--unk); }
+.rep-c ul { list-style: none; margin: 0; padding: 0; }
+.rep-c li { display: grid; grid-template-columns: 34px 38px minmax(0, 1fr); gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); font-size: 14.5px; }
+.rep-c .pos { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.rep-c .num { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.rep-c .nm { font-weight: 500; }
+.sub-h { font-size: 24px; font-weight: 800; margin: 36px 0 6px; }
+.tag.q { color: var(--unk); border-color: var(--unk); }
+
+/* pick */
+.pickbox { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 40px; align-items: center; background: var(--surface); padding: clamp(22px, 4vw, 44px); }
+.bigscore { font-family: var(--display); font-weight: 900; text-transform: uppercase; line-height: 0.86; font-size: clamp(64px, 12vw, 140px); }
+.bigscore div { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; }
+.bigscore .u { color: var(--unc); } .bigscore .m { color: var(--mia); }
+.bigscore small { font-size: 0.3em; letter-spacing: 0.06em; }
+.pickbox p + p { margin-top: 14px; }
+.why { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: 15px; }
+.why li::marker { color: var(--unc); }
+footer { padding-block: 56px 72px; }
+footer h2 { font-size: 28px; margin-bottom: 14px; }
+footer ul { margin: 0 0 16px; padding-left: 18px; display: grid; gap: 4px; font-size: 14px; }
+
+@media (max-width: 860px) {
+  .intro, .panel-body, .flow, .pickbox { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .trow { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+}
+@media (max-width: 640px) {
+  .scoreboard { grid-template-columns: minmax(0, 1fr); }
+  .team.mia { text-align: left; align-items: flex-start; }
+  .mid { border-inline: 0; border-block: 1px solid var(--line); flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
+  .mid .pick-l { margin-top: 0; }
+  section { padding-top: 48px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+
+<header class="nav"><div class="wrap">
+  <span class="brand">UNC / MIA</span>
+  <a href="#matchup">Matchup</a><a href="#tape">Tale of the tape</a><a href="#groups">Position groups</a><a href="#targets">Targets</a><a href="#concerns">Concerns</a><a href="#flow">Game flow</a><a href="#injuries">Injuries</a><a href="#pick">The pick</a>
+</div></header>
+
+<main>
+<div class="wrap hero">
+  <div class="kicker"><span>Sat. Oct. 31, 2026</span><span>7:30 p.m. ET, ABC</span><span>Kenan Stadium, Chapel Hill</span><span>Forecast: dry, 66&deg;F</span></div>
+  <div class="scoreboard">
+    <div class="team unc"><span class="rank">Home &middot; ACC 2-2</span><h1>North Carolina</h1><div class="rec">4-3</div><div class="meta">Coming off a 31-30 overtime loss to Syracuse</div></div>
+    <div class="mid"><span class="vs">VS</span><span class="pick-l">My pick</span><span class="pick"><b>34</b> &ndash; <i>31</i></span></div>
+    <div class="team mia"><span class="rank">No. 1 AP &middot; ACC 5-0</span><h1>Miami</h1><div class="rec">7-0</div><div class="meta">Beat Pitt 52-23 and plays at Notre Dame next</div></div>
+  </div>
+  <p class="odds">Miami is a 14.5-point favorite, the total is 52.5, the moneyline is around -750 and ESPN's matchup predictor gives the Hurricanes 89.8 percent. Miami is 5-2 against the spread this season and UNC is 4-3.</p>
+</div>
+
+<section id="matchup"><div class="wrap">
+  <div class="sec-h"><h2>The matchup</h2><p>A pregame breakdown from North Carolina's side.</p></div>
+  <div class="intro">
+    <div>
+      <p class="lead">I think North Carolina can beat No. 1 Miami, but only if it wins the possession battle, converts on third and fourth down and doesn't turn the ball over.</p>
+      <p>What gives me real hope is the schedule. This is Miami's second straight road game, and next Saturday it's at Notre Dame, which was No. 2 in the coaches poll as of Oct. 11 and has a grudge. Miami beat the Irish 27-24 last year and took the last College Football Playoff spot over them. State of the U called this week a classic trap game, and Mario Cristobal is clearly trying to head that off: "there has never been a trophy or parade for anybody halfway through the season."</p>
+      <p>The other side of that is Miami just beat Pitt 52-23, and a team that scores like this one doesn't have to be at its best to win by two touchdowns. Miami also let Florida State tie it three times before winning 43-35 in two overtimes, and Cristobal said he could "rattle off a million mistakes and errors." That's the crack I'm betting on.</p>
+    </div>
+    <div class="facts">
+      <div><span>All-time series</span><b>UNC leads 16-11</b></div>
+      <div><span>Last meeting</span><b>2023, UNC win at Kenan</b></div>
+      <div><span>Miami next</span><b>at Notre Dame, Nov. 7</b></div>
+      <div><span>Notre Dame this week</span><b>vs. Navy, Gillette Stadium</b></div>
+      <div><span>UNC to a bowl</span><b>needs 6 wins</b></div>
+      <div><span>UNC after Miami</span><b>at UConn, Louisville, at Virginia, NC State</b></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="tape"><div class="wrap">
+  <div class="sec-h"><h2>Tale of the tape</h2><p>Season numbers through seven games.</p></div>
+  <div class="tape"><div class="trow"><div class="tl"><span>Points scored per game</span></div>
+<div class="bars"><div class="bar left"><i style="width:49.8%"></i><b>24.4</b></div><div class="bar right"><i style="width:100.0%"></i><b>49.0</b></div></div></div><div class="trow"><div class="tl"><span>Points allowed per game</span><em>lower is better</em></div>
+<div class="bars"><div class="bar left"><i style="width:100.0%"></i><b>20.9</b></div><div class="bar right"><i style="width:73.2%"></i><b>15.3</b></div></div></div><div class="trow"><div class="tl"><span>Scoring margin, season</span></div>
+<div class="bars"><div class="bar left"><i style="width:10.6%"></i><b>+25</b></div><div class="bar right"><i style="width:100.0%"></i><b>+236</b></div></div></div><div class="trow"><div class="tl"><span>Penalty yards per game</span><em>lower is better</em></div>
+<div class="bars"><div class="bar left"><i style="width:50.4%"></i><b>31.7</b></div><div class="bar right"><i style="width:100.0%"></i><b>62.9</b></div></div></div></div>
+  <div class="legend"><span class="u">North Carolina</span><span class="m">Miami</span></div>
+</div></section>
+
+<section id="groups"><div class="wrap">
+  <div class="sec-h"><h2>Position groups</h2><p>Depth charts start from Ourlads' Oct. 23 chart, with corrections since. A red tag marks a player listed out on the most recent report I found.</p></div>
+  <div class="tablist" role="tablist" aria-label="Position groups"><button class="tab" role="tab" id="t-qb" aria-controls="p-qb" aria-selected="true" tabindex="0">QB</button><button class="tab" role="tab" id="t-rb" aria-controls="p-rb" aria-selected="false" tabindex="-1">RB</button><button class="tab" role="tab" id="t-wr" aria-controls="p-wr" aria-selected="false" tabindex="-1">WR / TE</button><button class="tab" role="tab" id="t-ol" aria-controls="p-ol" aria-selected="false" tabindex="-1">OL</button><button class="tab" role="tab" id="t-dl" aria-controls="p-dl" aria-selected="false" tabindex="-1">DL / Edge</button><button class="tab" role="tab" id="t-lb" aria-controls="p-lb" aria-selected="false" tabindex="-1">LB</button><button class="tab" role="tab" id="t-db" aria-controls="p-db" aria-selected="false" tabindex="-1">DB</button><button class="tab" role="tab" id="t-st" aria-controls="p-st" aria-selected="false" tabindex="-1">Special teams</button></div>
+  <div class="panel" role="tabpanel" id="p-qb" aria-labelledby="t-qb">
+<div class="panel-top"><h3>Quarterbacks</h3><span class="edge edge-mia">Edge: Miami, by a mile</span></div>
+<div class="chips"><div class="chip"><b>81.4%</b><span>Mensah completion %</span></div><div class="chip"><b>2,151 yds, 22 TD</b><span>Mensah season line</span></div><div class="chip"><b>~1,531 yds, 11 TD, 5 INT</b><span>Edwards, 7 games (my tally)</span></div><div class="chip"><b>11</b><span>Edwards sacks, first 5 games</span></div></div>
+<div class="panel-body"><div class="prose"><p>Darian Mensah has completed 81.4 percent of his throws, and his 24 straight completions against Wake Forest are an ACC record. His logs read like typos: 27 of 30 for 401 and five touchdowns at Stanford, 31 of 37 for 387 and four touchdowns against Pitt. He can run too, with a 34-yard touchdown scramble at Clemson.</p><p>Billy Edwards Jr. has not thrown an interception in either of the last two games, and the Syracuse day (27 of 44, 271 yards, two touchdowns, eight different receivers) was his most complete. My worry is the pocket. He was sacked 11 times in the first five games and was reportedly playing through a shoulder issue at Duke. He isn't on this week's injury report. He can't win a shootout with Mensah. He wins by getting the ball out on time to tight ends and checkdowns.</p></div><div class="charts"><div class="dc dc-u"><div class="dc-h"><span>North Carolina</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">QB</th><td>Billy Edwards Jr.</td><td>Miles O'Neill</td><td><span class="dash">—</span></td></tr></tbody></table></div></div><div class="dc dc-m"><div class="dc-h"><span>Miami</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">QB</th><td>Darian Mensah</td><td>Luke Nickel</td><td>Judd Anderson</td></tr></tbody></table></div></div></div></div>
+</div><div class="panel" role="tabpanel" id="p-rb" aria-labelledby="t-rb" hidden>
+<div class="panel-top"><h3>Running backs</h3><span class="edge edge-mia">Edge: Miami</span></div>
+<div class="chips"><div class="chip"><b>25 yds</b><span>UNC longest run, 7 games</span></div><div class="chip"><b>101 yds</b><span>UNC rushing vs. Syracuse</span></div><div class="chip"><b>211.1 yds</b><span>Miami rushing / game</span></div><div class="chip"><b>373 yds, 68 att</b><span>Fletcher, 6 games</span></div></div>
+<div class="panel-body"><div class="prose"><p>UNC's committee has not produced a run longer than 25 yards all season. That was Demon June on fourth-and-1 against Syracuse, where he had nine carries for 53 yards and a touchdown. Jaylen McGill carried 12 times for 62. Benjamin Hall is first on the depth chart but hurt something on the opening drive at Duke and sat out against Syracuse and isn't on this week's injury report.</p><p>Miami has more punch. Mark Fletcher Jr. has 32 career touchdowns, tied for second in school history, and freshman Javian Mallory has become the leading rusher (108 yards and two touchdowns against Florida State at 8.3 a carry). UNC has allowed 186 rushing yards at Clemson, 241 to Notre Dame and 199 to Syracuse. Miami doesn't need to run to win. UNC's best path is making it throw 45 times instead of handing off 30.</p></div><div class="charts"><div class="dc dc-u"><div class="dc-h"><span>North Carolina</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">RB</th><td>Benjamin Hall</td><td>Jaylen McGill</td><td>Demon June</td></tr></tbody></table></div></div><div class="dc dc-m"><div class="dc-h"><span>Miami</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">RB</th><td>Mark Fletcher Jr.</td><td>Javian Mallory</td><td>Girard Pringle Jr.</td></tr></tbody></table></div></div></div></div>
+</div><div class="panel" role="tabpanel" id="p-wr" aria-labelledby="t-wr" hidden>
+<div class="panel-top"><h3>Receivers and tight ends</h3><span class="edge edge-split">Edge: Miami at WR, slight UNC at TE</span></div>
+<div class="chips"><div class="chip"><b>16 rec, 194 yds, 3 TD</b><span>Toney vs. Pitt</span></div><div class="chip"><b>678+ yds</b><span>Toney, 4 games I could pin down</span></div><div class="chip"><b>7 rec, 77 yds</b><span>Thurman vs. Syracuse</span></div><div class="chip"><b>8 rec, 102 yds, TD</b><span>Shipp vs. Syracuse</span></div></div>
+<div class="panel-body"><div class="prose"><p>Malachi Toney is the best player on the field. The sophomore caught 109 passes for 1,211 yards last year, returns punts and has Heisman buzz. Against Pitt he set a program record with 16 catches, and 159 of his 194 yards came by halftime. Cooper Barkate is the deep threat. Joshua Moore is out for the season.</p><p>UNC's tight ends are the best part of its offense. Jelani Thurman (6-6) had a career-best seven catches against Syracuse and a fourth-down catch that kept the winning drive alive at Duke. Shamar Easter had a 75-yard seam touchdown at Pitt. Jordan Shipp started slowly (26 catches, no touchdowns through five games) but played 68 snaps against Syracuse. Miami's blitz-heavy early downs are the defense tight end screens are built to punish.</p></div><div class="charts"><div class="dc dc-u"><div class="dc-h"><span>North Carolina</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">WR-Z</th><td>Jordan Shipp</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td></tr><tr><th scope="row">Slot</th><td>Trech Kekahuna</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td></tr><tr><th scope="row">WR-X</th><td>Nyqir Helton</td><td>CJ Sadler (plays off the line)</td><td><span class="dash">—</span></td></tr><tr><th scope="row">Also</th><td>Mason Humphrey</td><td>Carnell Warren</td><td><span class="dash">—</span></td></tr><tr><th scope="row">Out</th><td>Keeyun Chapman <span class="tag">out</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td></tr><tr><th scope="row">TE</th><td>Jelani Thurman</td><td>Jordan Washington</td><td>Shamar Easter</td></tr></tbody></table></div></div><div class="dc dc-m"><div class="dc-h"><span>Miami</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">WR-X</th><td>Vandrevius Jacobs</td><td>Daylyn Upshaw</td><td><span class="dash">—</span></td></tr><tr><th scope="row">WR-Z</th><td>Cooper Barkate</td><td>Somourian Wingo</td><td>Milan Parris</td></tr><tr><th scope="row">Slot</th><td>Malachi Toney</td><td>Vance Spafford</td><td><span class="dash">—</span></td></tr><tr><th scope="row">TE</th><td>Elija Lofton</td><td>Gavin Mueller</td><td>Israel Briggs</td></tr></tbody></table></div></div></div></div>
+</div><div class="panel" role="tabpanel" id="p-ol" aria-labelledby="t-ol" hidden>
+<div class="panel-top"><h3>Offensive lines</h3><span class="edge edge-even">Edge: even, slight UNC on rush vs. protection</span></div>
+<div class="chips"><div class="chip"><b>out, knee surgery</b><span>Miami RG Buchanan</span></div><div class="chip"><b>3</b><span>Pitt sacks on Mensah</span></div><div class="chip"><b>both questionable</b><span>UNC Hall and Threatt</span></div><div class="chip"><b>11</b><span>UNC sacks allowed, 5 games</span></div></div>
+<div class="panel-body"><div class="prose"><p>This is where I think the favorite is most vulnerable. Right guard Max Buchanan had knee surgery after Clemson and is out with no timeline, the line was described as exposed against Wake Forest and Florida State, and Pitt got to Mensah three times, including two early sacks from Jaeden Moore.</p><p>UNC's line is anchored by 6-8, roughly 370-pound Jac'Qawn McRoy at right tackle. Left tackle Jordan Hall missed the Notre Dame, Pitt and Duke games, was upgraded to probable for Syracuse (I couldn't confirm that he played) and is questionable again this week, along with left guard Andrew Threatt. Alvarez is the sixth offensive lineman and the backup guard. Neither line is a strength, and that is the opening for a team that can rush the passer.</p></div><div class="charts"><div class="dc dc-u"><div class="dc-h"><span>North Carolina</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">LT</th><td>Jordan Hall <span class="tag q">questionable</span></td><td>Trey Blue</td><td><span class="dash">—</span></td></tr><tr><th scope="row">LG</th><td>Andrew Threatt <span class="tag q">questionable</span></td><td>Jonah Rodriguez</td><td><span class="dash">—</span></td></tr><tr><th scope="row">C</th><td>Christo Kelly</td><td>Will Conroy</td><td><span class="dash">—</span></td></tr><tr><th scope="row">RG</th><td>Aidan Banfield</td><td>Byron Nelson</td><td>Rowan Byrne</td></tr><tr><th scope="row">RT</th><td>Jac'Qawn McRoy</td><td>Eidan Buchanan</td><td>Brandon Homady</td></tr><tr><th scope="row">6th OL</th><td>Alvarez (backup guard)</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td></tr></tbody></table></div></div><div class="dc dc-m"><div class="dc-h"><span>Miami</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">LT</th><td>Samson Okunlola</td><td>Jamal Meriweather</td><td>Jaden Wilkerson</td></tr><tr><th scope="row">LG</th><td>Seuseu Alofaituli</td><td>Ben Congdon</td><td>Johnathan Cline</td></tr><tr><th scope="row">C</th><td>Ryan Rodriguez</td><td>Rhys Woodrow</td><td><span class="dash">—</span></td></tr><tr><th scope="row">RG</th><td>Max Buchanan <span class="tag">out</span></td><td>Jackson Cantwell</td><td><span class="dash">—</span></td></tr><tr><th scope="row">RT</th><td>Matthew McCoy</td><td>Jacob Hawks</td><td>Juan Minaya</td></tr></tbody></table></div></div></div></div>
+</div><div class="panel" role="tabpanel" id="p-dl" aria-labelledby="t-dl" hidden>
+<div class="panel-top"><h3>Defensive lines and edge rushers</h3><span class="edge edge-mia">Edge: Miami, but UNC's edge group can mismatch</span></div>
+<div class="chips"><div class="chip"><b>10.5 sacks</b><span>Abou Jaoude, 2025</span></div><div class="chip"><b>6 sacks</b><span>Lewis, first 3 games</span></div><div class="chip"><b>6</b><span>Miami sacks at Clemson</span></div><div class="chip"><b>1.8, then 4.1 vs. FSU</b><span>Miami yds/carry allowed</span></div></div>
+<div class="panel-body"><div class="prose"><p>If UNC pulls this off, I think it will be because of the edge rushers. Melkart Abou Jaoude led the ACC with 10.5 sacks last season and was questionable at Clemson and isn't on this week's initial injury report. Xavier Lewis, who lines up at defensive tackle, had six sacks through three games. The flaw is the run. UNC has allowed 100-plus rushing yards in at least four games, and against Notre Dame it had no sacks and two tackles for loss.</p><p>Miami's front is the more complete group. Damon Wilson II had 2.5 sacks and 11 pressures at Clemson, Marquise Lightfoot has 5.0 sacks, and the unit held opponents to 1.8 yards a carry through five games before Florida State got 4.1.</p></div><div class="charts"><div class="dc dc-u"><div class="dc-h"><span>North Carolina</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">DE</th><td>Leroy Jackson</td><td>Emmanuel Nwaiwu</td><td>Tarvorise Brown</td></tr><tr><th scope="row">NT</th><td>Isaiah Johnson</td><td>Nicco Maggio</td><td>Vodney Cleveland <span class="tag">out</span></td></tr><tr><th scope="row">DT</th><td>Xavier Lewis</td><td>Trey Giddens</td><td><span class="dash">—</span></td></tr><tr><th scope="row">OLB (left edge)</th><td>Jaylen Harvey</td><td>Donovan Hoilette Jr.</td><td>Calvin Thomas</td></tr><tr><th scope="row">OLB (right edge)</th><td>Melkart Abou Jaoude</td><td>David Jackson III</td><td>Joseph Mupoyi</td></tr></tbody></table></div></div><div class="dc dc-m"><div class="dc-h"><span>Miami</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">LDE</th><td>Damon Wilson II</td><td>Armondo Blount</td><td>Asharri Charles</td></tr><tr><th scope="row">LDT</th><td>Justin Scott</td><td>Keona Davis</td><td>Mykah Newton</td></tr><tr><th scope="row">RDT</th><td>Ahmad Moten Sr.</td><td>Jarquez Carter</td><td><span class="dash">—</span></td></tr><tr><th scope="row">RDE</th><td>Marquise Lightfoot</td><td>Herbert Scroggins III</td><td>Booker Pickett Jr.</td></tr></tbody></table></div></div></div></div>
+</div><div class="panel" role="tabpanel" id="p-lb" aria-labelledby="t-lb" hidden>
+<div class="panel-top"><h3>Linebackers</h3><span class="edge edge-mia">Edge: slight Miami on depth</span></div>
+<div class="chips"><div class="chip"><b>16 tackles</b><span>McDonald vs. Syracuse</span></div><div class="chip"><b>12 tackles</b><span>McDonald vs. Notre Dame</span></div><div class="chip"><b>4.1</b><span>FSU yds/carry vs. Miami</span></div></div>
+<div class="panel-body"><div class="prose"><p>UNC's 4-2-5 puts only two linebackers on the field, and Derek McDonald, the Syracuse transfer, has been the most visible player on the defense. His 16 tackles against his old team earned ACC Linebacker of the Week. That says something about his instincts and something about the front ahead of him.</p><p>I couldn't find much on Miami's linebackers. Chase Smith, a sixth-year senior, plays the weak side and Mohamed Toure is in the middle. They operate in a blitz-heavy scheme, and the run defense has slipped when Miami blitzes too early. The matchup that matters is Thurman and Easter against them in coverage.</p></div><div class="charts"><div class="dc dc-u"><div class="dc-h"><span>North Carolina</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">WLB</th><td>Peyton Seelmann</td><td>Timir Hickman-Collins</td><td>Jake Bauer</td></tr><tr><th scope="row">MLB</th><td>Derek McDonald</td><td>Jonathan Agumadu <span class="tag q">questionable</span></td><td>Daniel Anderson</td></tr></tbody></table></div></div><div class="dc dc-m"><div class="dc-h"><span>Miami</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">WLB</th><td>Chase Smith</td><td>Cam Pruitt</td><td>Ezekiel Marcelin Jr.</td></tr><tr><th scope="row">MLB</th><td>Mohamed Toure</td><td>Kamal Bonner</td><td>Kellen Wiley Jr.</td></tr></tbody></table></div></div></div></div>
+</div><div class="panel" role="tabpanel" id="p-db" aria-labelledby="t-db" hidden>
+<div class="panel-top"><h3>Secondaries</h3><span class="edge edge-mia">Edge: Miami, but UNC's best shot at stealing points</span></div>
+<div class="chips"><div class="chip"><b>312 yds</b><span>Lopez vs. Miami</span></div><div class="chip"><b>295 yds</b><span>Reynolds vs. Miami</span></div><div class="chip"><b>305 yds</b><span>Daniels vs. Miami</span></div><div class="chip"><b>256 yds, 2 TD</b><span>Angeli vs. UNC</span></div></div>
+<div class="panel-body"><div class="prose"><p>UNC's secondary is the most depleted group on the roster. Tre Miller is out and Jakob Weatherspoon is no longer on the report. Kaleb Cost and Peyton Waters were upgraded to probable on Friday, were game-time decisions Saturday and then did not play against Syracuse, whose quarterback threw for 256 yards, including a 76-yard touchdown on the first play of the fourth quarter. Cost isn't on this week's report and Waters is questionable. At corner, Jalon Thompson played more snaps than Kenton Dopson against Syracuse, but I still expect Dopson to be CB2.</p><p>Miami's secondary is the soft spot on an otherwise elite team. It has given up 312 yards to Wake Forest's Gio Lopez, 295 to Clemson's Reynolds and 305 to Florida State's Daniels. Some of that is game state, but the pattern of downfield completions is consistent. For UNC this is the most appealing matchup on the field.</p></div><div class="charts"><div class="dc dc-u"><div class="dc-h"><span>North Carolina</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">CB</th><td>Jaiden Patterson</td><td>Kenton Dopson III</td><td>Jalon Thompson</td></tr><tr><th scope="row">CB (out)</th><td>Tre Miller <span class="tag">out</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td></tr><tr><th scope="row">CB depth</th><td>Jaziel Hart</td><td>Reggie Love II</td><td><span class="dash">—</span></td></tr><tr><th scope="row">SS</th><td>Greg Smith III</td><td>Javion Butts</td><td><span class="dash">—</span></td></tr><tr><th scope="row">FS</th><td>Peyton Waters <span class="tag q">questionable</span></td><td>Coleman Bryson</td><td>Jakob Weatherspoon</td></tr><tr><th scope="row">Nickel</th><td>Kaleb Cost <span class="tag">DNP vs. SYR</span></td><td>Ade Willie</td><td><span class="dash">—</span></td></tr></tbody></table></div></div><div class="dc dc-m"><div class="dc-h"><span>Miami</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">LCB</th><td>Damari Brown</td><td>Camdin Portis</td><td>Ryan Mack</td></tr><tr><th scope="row">RCB</th><td>Bryce Fitzgerald</td><td>Ethan O'Connor</td><td><span class="dash">—</span></td></tr><tr><th scope="row">SS</th><td>JJ Dunnigan</td><td>Isaiah Taylor</td><td><span class="dash">—</span></td></tr><tr><th scope="row">FS</th><td>Zechariah Poyser</td><td>Dylan Day</td><td>Cortez Redding</td></tr><tr><th scope="row">Nickel</th><td>Omar Thornton</td><td>Chris Ewald Jr.</td><td><span class="dash">—</span></td></tr></tbody></table></div></div></div></div>
+</div><div class="panel" role="tabpanel" id="p-st" aria-labelledby="t-st" hidden>
+<div class="panel-top"><h3>Special teams</h3><span class="edge edge-unc">Edge: slight UNC, with Toney the exception</span></div>
+<div class="chips"><div class="chip"><b>19 of 23</b><span>Verhoff FG, 2025</span></div><div class="chip"><b>3 FG</b><span>Verhoff vs. Syracuse</span></div><div class="chip"><b>98-yd KR TD</b><span>Jefferson vs. Notre Dame</span></div><div class="chip"><b>31.7 vs. 62.9</b><span>Penalty yds / game</span></div></div>
+<div class="panel-body"><div class="prose"><p>Rece Verhoff made 19 of 23 field goals last year and hit three against Syracuse. Jaden Jefferson's 98-yard kickoff return touchdown against Notre Dame and Calvin Thomas's blocked punt at Duke are the highs. The low points are backup punter Adam McCann-Gibbs dropping a snap at Duke and Trech Kekahuna's fumble against TCU.</p><p>Miami's real special-teams weapon is Toney, who returns punts. UNC has to punt well and directionally and can't give him a clean look. If it is close in the fourth quarter, the kicking game could decide it. Verhoff is the place kicker, Burrell punts and handles kickoffs, and Jefferson is the primary kick returner with Kekahuna second.</p></div><div class="charts"><div class="dc dc-u"><div class="dc-h"><span>North Carolina</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">K</th><td>Rece Verhoff</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td></tr><tr><th scope="row">KO</th><td>Aeron Burrell</td><td>David Green</td><td><span class="dash">—</span></td></tr><tr><th scope="row">P</th><td>Aeron Burrell</td><td>Jacob Horvath</td><td>Adam McCann-Gibbs</td></tr><tr><th scope="row">LS</th><td>Gannon Burt</td><td>Roman Wazni</td><td><span class="dash">—</span></td></tr><tr><th scope="row">KR</th><td>Jaden Jefferson</td><td>Trech Kekahuna</td><td><span class="dash">—</span></td></tr><tr><th scope="row">PR</th><td>Trech Kekahuna</td><td>Jaden Jefferson</td><td><span class="dash">—</span></td></tr></tbody></table></div></div><div class="dc dc-m"><div class="dc-h"><span>Miami</span><em>Oct. 23 chart</em></div><div class="tw"><table><thead><tr><th>Spot</th><th>1st</th><th>2nd</th><th>3rd</th></tr></thead><tbody><tr><th scope="row">K / KO</th><td>Jake Weinberg</td><td>Jack Olsen</td><td>Will Rocha</td></tr><tr><th scope="row">P</th><td>Dylan Joyce</td><td>Tucker Tevepaugh</td><td><span class="dash">—</span></td></tr><tr><th scope="row">LS</th><td>Adam Booker</td><td>Vance Diepenbrock</td><td><span class="dash">—</span></td></tr><tr><th scope="row">KR</th><td>Girard Pringle Jr.</td><td>Javian Mallory</td><td><span class="dash">—</span></td></tr><tr><th scope="row">PR</th><td>Malachi Toney</td><td>Cooper Barkate</td><td><span class="dash">—</span></td></tr></tbody></table></div></div></div></div>
+</div>
+</div></section>
+
+<section id="targets"><div class="wrap">
+  <div class="sec-h"><h2>Where UNC should target</h2><p>The five places I'd go after Miami.</p></div>
+  <div class="cols"><article class="card tgt"><h3>Miami's interior pass protection</h3><p>With Max Buchanan out at right guard, this is the softest spot in Miami's offense. Send Abou Jaoude and Lewis inside with stunts and make Mensah leave his first read.</p></article><article class="card tgt"><h3>Tight end seams and screens</h3><p>Hetherman blitzes on first and second down. A 6-6 Thurman or a seam runner like Easter finds space there, and a couple of early screens slow the blitz.</p></article><article class="card tgt"><h3>Shots down the field</h3><p>Lopez, Reynolds and Daniels all topped 295 yards against Miami. Edwards needs two or three clean shots to Shipp, Kekahuna or Easter.</p></article><article class="card tgt"><h3>Penalties and possession</h3><p>Miami gives up 62.9 penalty yards a game, UNC 31.7. Miami went 10 of its first 12 on third down against Pitt, so UNC should hold the ball for six minutes at a time.</p></article><article class="card tgt"><h3>Fourth down and the kicking game</h3><p>Syracuse converted four of seven fourth downs and UNC one of two. Verhoff is the safe option when going for it isn't right.</p></article></div>
+</div></section>
+
+<section id="concerns"><div class="wrap">
+  <div class="sec-h"><h2>Where UNC should be concerned</h2><p>The risks are easier to list than the opportunities, and a lot of them feed each other.</p></div>
+  <div class="cols"><article class="card cnc"><h3>Mensah and Toney against a thin secondary</h3><p>Miami throws for 340.7 yards a game, fourth in the FBS. UNC is missing Miller, Waters is questionable, and Cost and Waters both sat out last week.</p></article><article class="card cnc"><h3>Edwards staying upright</h3><p>Eleven sacks in five games, five interceptions and a reported shoulder issue. Wilson and Lightfoot can turn a sack into a short field.</p></article><article class="card cnc"><h3>The run defense late in games</h3><p>186 yards at Clemson, 241 to Notre Dame, 199 to Syracuse. Fletcher and Mallory wear defenses down.</p></article><article class="card cnc"><h3>Leads that disappear</h3><p>UNC has held three double-digit leads this season (Clemson, Duke, Syracuse), lost two and needed a late drive to survive the third.</p></article><article class="card cnc"><h3>Depth and availability</h3><p>Jordan Hall, Andrew Threatt and Peyton Waters are questionable and Tre Miller is out. Abou Jaoude, Edwards, Cost and Benjamin Hall aren't on the initial report.</p></article><article class="card cnc"><h3>The scoreboard math</h3><p>Miami scores 49.0 a game and UNC 24.4. UNC has scored more than 30 once this year, in the 35-3 win over ETSU.</p></article><article class="card cnc"><h3>Off-field turbulence</h3><p>Lombardi resigned, an internal investigation followed and the defensive coordinator situation has been murky since August.</p></article></div>
+</div></section>
+
+<section id="flow"><div class="wrap">
+  <div class="sec-h"><h2>How I think it breaks down</h2><p>A scenario, not a forecast. This is what has to go right for UNC.</p></div>
+  <div class="flow">
+    <ol><li><div class="q">Q1</div><div><h4>Miami 7, UNC 3</h4><p>Miami scores first. UNC answers with a patient drive and a Verhoff field goal and stays out of third-and-long.</p></div></li><li><div class="q">Q2</div><div><h4>UNC 10, Miami 10 at the half</h4><p>The pass rush arrives through Miami's interior. A third-down sack, a seam to Easter or Thurman, and UNC leads 10-7 before Miami's field goal.</p></div></li><li><div class="q">Q3</div><div><h4>17-17</h4><p>Miami leans on Mallory and Fletcher and scores first out of the half. UNC answers right away with a long, clock-eating drive and a Thurman touchdown.</p></div></li><li><div class="q">Q4</div><div><h4>UNC 34, Miami 31</h4><p>Miami goes up 24-17 and UNC ties it. Miami goes back in front 31-24, Edwards answers with a touchdown drive to tie it again, and Verhoff kicks the winning field goal. UNC gambles with pressure on the last Miami drive.</p></div></li></ol>
+    <div class="cardbox"><h4>Projected score by quarter</h4><div class="sub">Dotted line is Miami. Tied at the half and again after three quarters.</div><svg viewBox="0 0 640 300" role="img" aria-label="Projected score by quarter: UNC 0, 3, 10, 17, 34. Miami 0, 7, 10, 17, 31.">
+<line x1="50" x2="610" y1="250.0" y2="250.0" class="gl"/><text x="40" y="254.0" class="gt" text-anchor="end">0</text><line x1="50" x2="610" y1="186.0" y2="186.0" class="gl"/><text x="40" y="190.0" class="gt" text-anchor="end">10</text><line x1="50" x2="610" y1="122.0" y2="122.0" class="gl"/><text x="40" y="126.0" class="gt" text-anchor="end">20</text><line x1="50" x2="610" y1="58.0" y2="58.0" class="gl"/><text x="40" y="62.0" class="gt" text-anchor="end">30</text><text x="70" y="278" class="gt" text-anchor="middle">Kickoff</text><text x="195" y="278" class="gt" text-anchor="middle">End Q1</text><text x="320" y="278" class="gt" text-anchor="middle">Half</text><text x="445" y="278" class="gt" text-anchor="middle">End Q3</text><text x="570" y="278" class="gt" text-anchor="middle">Final</text>
+<path d="M70,250.0 L195,205.2 L320,186.0 L445,141.2 L570,51.6" class="lm"/><path d="M70,250.0 L195,230.8 L320,186.0 L445,141.2 L570,32.4" class="lu"/><circle cx="70" cy="250.0" r="5" class="du"/><circle cx="195" cy="230.8" r="5" class="du"/><circle cx="320" cy="186.0" r="5" class="du"/><circle cx="445" cy="141.2" r="5" class="du"/><circle cx="570" cy="32.4" r="5" class="du"/><circle cx="70" cy="250.0" r="3" class="dm"/><circle cx="195" cy="205.2" r="3" class="dm"/><circle cx="320" cy="186.0" r="3" class="dm"/><circle cx="445" cy="141.2" r="3" class="dm"/><circle cx="570" cy="51.6" r="3" class="dm"/>
+<text x="582" y="37.4" class="le lue">UNC 34</text><text x="582" y="69.6" class="le mie">MIA 31</text>
+</svg><div class="cap">In this script Mensah throws for 300-plus yards, Toney tops 100, and UNC wins time of possession and draws far fewer penalties. It's a shootout, so it needs the pass rush to show up early.</div></div>
+  </div>
+</div></section>
+
+<section id="injuries"><div class="wrap">
+  <div class="sec-h"><h2>Injury reports</h2><p>ACC initial report, posted Wednesday, Oct. 28 at 8 p.m. ET.</p></div>
+  <div class="rep">
+    <div class="rep-c unc"><h3>North Carolina</h3>
+      <h4>Out</h4><ul><li><span class="pos">DB</span><span class="num">#6</span><span class="nm">Tre Miller</span></li><li><span class="pos">DL</span><span class="num">#56</span><span class="nm">Viliami Moala</span></li><li><span class="pos">WR</span><span class="num">#82</span><span class="nm">Keeyun Chapman</span></li><li><span class="pos">DL</span><span class="num">#88</span><span class="nm">Vodney Cleveland</span></li><li><span class="pos">DL</span><span class="num">#92</span><span class="nm">Jimmy-Phrisco Alo-Suliafu</span></li></ul>
+      <h4 class="q">Questionable</h4><ul><li><span class="pos">DB</span><span class="num">#7</span><span class="nm">Peyton Waters</span></li><li><span class="pos">LB</span><span class="num">#8</span><span class="nm">Jonathan Agumadu</span></li><li><span class="pos">DL</span><span class="num">#29</span><span class="nm">Zavion Griffin-Haynes</span></li><li><span class="pos">OL</span><span class="num">#66</span><span class="nm">Jordan Hall</span></li><li><span class="pos">OL</span><span class="num">#75</span><span class="nm">Andrew Threatt</span></li></ul></div>
+    <div class="rep-c mia"><h3>Miami</h3>
+      <h4>Out</h4><ul><li><span class="pos">WR</span><span class="num">#3</span><span class="nm">Joshua Moore</span></li><li><span class="pos">RB</span><span class="num">#6</span><span class="nm">CharMar Brown</span></li><li><span class="pos">DB</span><span class="num">#16</span><span class="nm">Ja'Boree Antoine</span></li><li><span class="pos">DB</span><span class="num">#29</span><span class="nm">Romanas "OJ" Frederique Jr.</span></li><li><span class="pos">OL</span><span class="num">#66</span><span class="nm">Max Buchanan</span></li><li><span class="pos">TE</span><span class="num">#88</span><span class="nm">Luka Gilbert</span></li></ul></div>
+  </div>
+  <p class="note">Since last week's report, Mason Humphrey, Jakob Weatherspoon and Ashton Blatt are off the UNC list. Jordan Hall is still questionable and Peyton Waters moved from probable back to questionable. Andrew Threatt (starting left guard), Jonathan Agumadu and Zavion Griffin-Haynes are new. Kaleb Cost, Benjamin Hall, Aeron Burrell, Jordan Shipp, Melkart Abou Jaoude and Billy Edwards Jr. aren't listed. Miami's list matches the Florida State-week list without Milan Parris. A later report could change any of this.</p>
+  <h3 class="sub-h">Last week's report, for reference</h3>
+  <p class="note">UNC had 14 players on the ACC report before Syracuse. Three starters upgraded to probable on Friday never got on the field.</p>
+  <div class="tw inj"><table><thead><tr><th>Player</th><th>Position</th><th>Report</th><th>Against Syracuse</th></tr></thead><tbody><tr><th scope="row">Benjamin Hall</th><td>RB</td><td>Questionable, then probable Friday</td><td><span class="st st-dnp">Did not play</span></td></tr><tr><th scope="row">Kaleb Cost</th><td>DB (nickel)</td><td>Questionable, then probable Friday</td><td><span class="st st-dnp">Did not play</span></td></tr><tr><th scope="row">Peyton Waters</th><td>DB (free safety)</td><td>Questionable, then probable Friday</td><td><span class="st st-dnp">Did not play</span></td></tr><tr><th scope="row">Jordan Shipp</th><td>WR</td><td>Questionable, then probable Friday</td><td><span class="st st-ok">Played, 68 snaps</span></td></tr><tr><th scope="row">Jordan Hall</th><td>OL (left tackle)</td><td>Questionable, then probable Friday. Missed prior 3 games</td><td><span class="st st-unk">Couldn't confirm</span></td></tr><tr><th scope="row">Aeron Burrell</th><td>K / P</td><td>Questionable, then probable Friday</td><td><span class="st st-unk">Couldn't confirm</span></td></tr><tr><th scope="row">Humphrey, Chapman, Miller, Weatherspoon, Blatt, Moala, Cleveland, Alo-Suliafu</th><td>WR, WR, DB, DB, LB, DL, DL, DL</td><td>Out</td><td><span class="st st-out">Out</span></td></tr></tbody></table></div>
+  <p class="note">Belichick said nobody had said Cost, Waters and Hall would play and that playing time depends on a variety of circumstances. Freshman receiver CJ Sadler also didn't play on offense, and Belichick said he wasn't injured.</p>
+</div></section>
+
+<section id="pick"><div class="wrap">
+  <div class="sec-h"><h2>The pick</h2></div>
+  <div class="pickbox">
+    <div class="bigscore"><div class="u"><span>UNC</span><span>34</span></div><div class="m"><span>Miami</span><span>31</span></div></div>
+    <div>
+      <p>A three-point UNC win that comes down to the final possession. Four reasons:</p>
+      <ul class="why">
+        <li>Miami already showed it can be beaten. It needed two overtimes against Florida State despite outgaining the Seminoles 583-443.</li>
+        <li>The schedule works against the favorite: a second straight road game with Notre Dame next.</li>
+        <li>UNC's strengths line up with Miami's weaknesses: 31.7 penalty yards a game against 62.9, a pass rush against a patched interior line, and tight ends against a blitz-heavy defense.</li>
+        <li>Kenan at night with a dry forecast is about as good a setting as UNC gets.</li>
+      </ul>
+      <p>I'll be honest about the other side. Miami is the No. 1 team in the country and the favorite for a reason. UNC has lost two of the three games where it led by double digits, its secondary is injured and its run defense has been gashed. If Mensah has time or Toney gets loose, this turns into the double-digit Miami win most people expect. So this is a pick on the best version of the game for UNC, not the most likely one.</p>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p class="note">Totals marked "my tally" are my own sums of game logs. Edwards's shoulder issue at Duke and Steve Belichick's situation are not confirmed against an official report. Injury statuses are from the Wednesday initial report and can change. Stats as of Oct. 28, 2026.</p>
+</div></footer>
+
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function show(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      var p = document.getElementById(t.getAttribute('aria-controls'));
+      if (p) p.hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(t, false); });
+    t.addEventListener('keydown', function (e) {
+      var n = null;
+      if (e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') n = tabs[0];
+      if (e.key === 'End') n = tabs[tabs.length - 1];
+      if (n) { e.preventDefault(); show(n, true); }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
